@@ -9,22 +9,22 @@ class Game
     game_loop
   end
 
-  # def player_lives
-  #   if @player_1.lives == 0 or @player_2.lives == 0
-  #     if @player_1.lives == 0
-  #       puts "#{@player_2.name} wins with a score of #{@player_2.lives}/3"
-  #       puts '----- GAME OVER ------'
-  #       return 1
-  #     else
-  #       puts "#{@player_1.name} wins with a score of #{@player_1.lives}/3"
-  #       puts '----- GAME OVER ------'
-  #       return 1
-  #     end
-  #   end
+  def player_lives
+    if @player_1.lives == 0 or @player_2.lives == 0
+      if @player_1.lives == 0
+        puts "#{@player_2.name} wins with a score of #{@player_2.lives}/3"
+        puts '----- GAME OVER ------'
+        return 1
+      else
+        puts "#{@player_1.name} wins with a score of #{@player_1.lives}/3"
+        puts '----- GAME OVER ------'
+        return 1
+      end
+    end
 
-  #   puts "#{@player_1.name} has (#{@player_1.lives}) #{@player_1.lives > 1 ? 'lives' : 'life'} and #{@player_2.name} has (#{@player_2.lives}) #{@player_2.lives > 1 ? 'lives' : 'life'}"
+    puts "#{@player_1.name} has (#{@player_1.lives}) #{@player_1.lives > 1 ? 'lives' : 'life'} and #{@player_2.name} has (#{@player_2.lives}) #{@player_2.lives > 1 ? 'lives' : 'life'}"
 
-  # end
+  end
 
   def game_loop
     player_turn = 1
@@ -32,8 +32,15 @@ class Game
     question = Question.new
     question.ask_question(current_player)
     print '> '
-    @player_answer = $stdin.gets.chomp.to_i
+    player_answer = $stdin.gets.chomp.to_i
+    answer = question.check_answer(player_answer)
+    if answer  
+      puts "WOOHOO! Good job, smarty pants!"
+    else puts "Are you SERIOUS? Nooo way."
+    end
   end
+
+ 
 
 end
 

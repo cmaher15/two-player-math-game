@@ -1,5 +1,5 @@
 class Question 
-  attr_accessor :ask_question
+  attr_accessor :ask_question, :check_answer
 
   def initialize
     @number1 = rand(1..20)
@@ -20,4 +20,4 @@ end
 
 question = Question.new
 
-puts question.ask_question("player_1")
+puts question.ask_question("Player 1")
