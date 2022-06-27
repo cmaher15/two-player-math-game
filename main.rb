@@ -1,4 +1,8 @@
-require './lives'
 require './players'
 require './question'
-require './turns'
+require './game'
+
+game = Game.new
+game.game_loop
+
+
