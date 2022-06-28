@@ -1,5 +1,5 @@
 class Question 
-  attr_accessor :ask_question, :check_answer
+  attr_accessor :number1, :number2, :answer, :ask_question, :check_answer
 
   def initialize
     @number1 = rand(1..20)
@@ -8,16 +8,13 @@ class Question
   end 
 
   def ask_question(player)
-  puts "#{player}: What does #{@number1} plus #{@number2} equal?"
+  "#{player}: What does #{@number1} plus #{@number2} equal?"
   end
 
   def check_answer(input)
-  input == @answer
+ if input.to_i == answer
+  return true
   end  
-
+end
 
 end 
-
-question = Question.new
-
-puts question.ask_question("Player 1")
